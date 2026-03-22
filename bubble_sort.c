@@ -1,4 +1,5 @@
-#include <stdio.h>
+
+#include "bubble_sort.h"
 
 void bubble_sort(int values[], int length) {
     for (int passIndex = 0; passIndex < length - 1; passIndex++) {
@@ -33,29 +34,4 @@ void sort_array_insertion(int values[], int length) {
     insertion_sort(values, length);
 }
 
-int main() {
-    int bubbleArray[] = {64, 34, 25, 12, 22, 25, 90,8, 0, -1};
-    int insertionArray[] = {64, 34, 25, 12, 22, 25, 90,8, 0, -1};
-    int itemCount = sizeof(bubbleArray) / sizeof(bubbleArray[0]);
 
-    printf("Avant : ");
-    for (int index = 0; index < itemCount; index++)
-        printf("%d ", bubbleArray[index]);
-    printf("\n");
-
-    sort_array(bubbleArray, itemCount);
-
-    printf("Apres  : ");
-    for (int index = 0; index < itemCount; index++)
-        printf("%d ", bubbleArray[index]);
-    printf("\n");
-
-    sort_array_insertion(insertionArray, itemCount);
-
-    printf("Apres insertion : ");
-    for (int index = 0; index < itemCount; index++)
-        printf("%d ", insertionArray[index]);
-    printf("\n");
-
-    return 0;
-}
