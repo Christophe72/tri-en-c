@@ -48,13 +48,23 @@ make
 
 Le Makefile prend aussi en compte tous les fichiers sources.
 
-## Execution
 
-Sous Windows :
+## Exécution
+
+Lancez le programme compilé :
 
 ```bat
 bubble_sort.exe
 ```
+
+Au démarrage, choisissez le mode :
+
+- **1** : saisie manuelle du tableau (pour tester sur de petits jeux de données)
+- **2** : benchmark automatique sur un grand tableau aléatoire (jusqu'à 10 000 éléments)
+
+En mode benchmark, le programme génère un tableau d'entiers aléatoires et mesure précisément le temps d'exécution de chaque tri.
+
+Pour fiabiliser la mesure, chaque tri est répété plusieurs fois (jusqu'à 1000 fois pour les petits tableaux, 10 fois pour les grands) et la moyenne est affichée, ainsi que le temps total.
 
 ## Nettoyage
 
@@ -83,9 +93,10 @@ Cette approche permet de comparer facilement les deux implementations sur un mem
 
 ## Exemple de sortie
 
-Voici un exemple de sortie typique lors de l'execution du programme :
+### Mode manuel (petit tableau)
 
 ```
+Mode 1 = saisie manuelle, 2 = benchmark tableau aleatoire : 1
 Combien de valeurs voulez-vous trier ? 5
 Veuillez entrer 5 entiers :
 Valeur 1 : 8
@@ -95,10 +106,26 @@ Valeur 4 : 1
 Valeur 5 : 4
 Avant : 8 3 7 1 4 
 Apres  : 1 3 4 7 8 
+Temps tri a bulles : 0.00200000 ms (moyenne sur 1000 repetitions)
+Temps total tri a bulles : 2.000 ms
 Apres insertion : 1 3 4 7 8 
+Temps tri insertion : 0.00100000 ms (moyenne sur 1000 repetitions)
+Temps total tri insertion : 1.000 ms
 ```
 
-L'utilisateur choisit la taille et les valeurs du tableau à trier.
+### Mode benchmark (grand tableau)
+
+```
+Mode 1 = saisie manuelle, 2 = benchmark tableau aleatoire : 2
+Taille du tableau (max 10000) : 5000
+Tableau aleatoire genere.
+Temps tri a bulles : 1200.12345678 ms (moyenne sur 10 repetitions)
+Temps total tri a bulles : 12001.235 ms
+Temps tri insertion : 0.45678901 ms (moyenne sur 10 repetitions)
+Temps total tri insertion : 4.568 ms
+```
+
+Les valeurs de temps sont données à titre d'exemple et varient selon la machine et la taille du tableau.
 
 ```
 Avant : 64 34 25 12 22 25 90 8 0 -1 
