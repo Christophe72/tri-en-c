@@ -1,6 +1,6 @@
 #ifndef SAISIE_H
 #define SAISIE_H
 
-void saisir_tableau(int values[], int length);
+int saisir_tableau_complet(int values[], int max_length);
 
 #endif

@@ -3,15 +3,11 @@
 #include "saisie.h"
 
 int main() {
-    int itemCount;
-    printf("Combien de valeurs voulez-vous trier ? ");
-    scanf("%d", &itemCount);
-    if (itemCount <= 0 || itemCount > 100) {
-        printf("Nombre invalide. Choisissez un nombre entre 1 et 100.\n");
+    int originalArray[100];
+    int itemCount = saisir_tableau_complet(originalArray, 100);
+    if (itemCount <= 0) {
         return 1;
     }
-    int originalArray[100];
-    saisir_tableau(originalArray, itemCount);
 
     int bubbleArray[100], insertionArray[100];
     for (int i = 0; i < itemCount; i++) {
