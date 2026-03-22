@@ -13,11 +13,12 @@ Le programme compile un unique fichier source, applique chaque algorithme sur un
 
 ## Contenu du projet
 
-- `main.c` : point d'entree du programme
-- `bubble_sort.c` / `bubble_sort.h` : fonctions de tri
-- `saisie.c` / `saisie.h` : fonction de saisie utilisateur
+- `src/` : tous les fichiers source C (`main.c`, `bubble_sort.c`, `saisie.c`)
+- `include/` : tous les headers (`bubble_sort.h`, `saisie.h`)
 - `Makefile` : compilation du programme avec `make`
 - `build.bat` : compilation du programme sous Windows via un script batch
+
+Tous les headers sont uniques et rangés dans le dossier `include/`.
 
 ## Prerequis
 
@@ -38,7 +39,7 @@ Si votre installation utilise un autre chemin, adaptez la variable `CC` dans les
 build.bat
 ```
 
-Le script compile automatiquement tous les fichiers sources nécessaires (`main.c`, `bubble_sort.c`, `saisie.c`).
+Le script compile automatiquement tous les fichiers sources nécessaires depuis `src/` et les headers depuis `include/`.
 
 ### Avec Make
 
@@ -46,7 +47,7 @@ Le script compile automatiquement tous les fichiers sources nécessaires (`main.
 make
 ```
 
-Le Makefile prend aussi en compte tous les fichiers sources.
+Le Makefile prend aussi en compte tous les fichiers sources et headers dans les bons dossiers.
 
 
 ## Exécution

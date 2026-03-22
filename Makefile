@@ -1,8 +1,8 @@
 CC = C:/gcc-15.2.0/bin/gcc.exe
-CFLAGS = -Wall -Wextra -std=c11
+CFLAGS = -Wall -Wextra -std=c11 -Iinclude
 
 TARGET = bubble_sort
-SRC = main.c bubble_sort.c saisie.c
+SRC = src/main.c src/bubble_sort.c src/saisie.c
 
 all: $(TARGET)
 
