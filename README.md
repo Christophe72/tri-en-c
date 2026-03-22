@@ -13,7 +13,9 @@ Le programme compile un unique fichier source, applique chaque algorithme sur un
 
 ## Contenu du projet
 
-- `bubble_sort.c` : implementation des fonctions de tri et point d'entree `main`
+- `main.c` : point d'entree du programme
+- `bubble_sort.c` / `bubble_sort.h` : fonctions de tri
+- `saisie.c` / `saisie.h` : fonction de saisie utilisateur
 - `Makefile` : compilation du programme avec `make`
 - `build.bat` : compilation du programme sous Windows via un script batch
 
@@ -36,11 +38,15 @@ Si votre installation utilise un autre chemin, adaptez la variable `CC` dans les
 build.bat
 ```
 
+Le script compile automatiquement tous les fichiers sources nécessaires (`main.c`, `bubble_sort.c`, `saisie.c`).
+
 ### Avec Make
 
 ```bash
 make
 ```
+
+Le Makefile prend aussi en compte tous les fichiers sources.
 
 ## Execution
 
@@ -78,6 +84,21 @@ Cette approche permet de comparer facilement les deux implementations sur un mem
 ## Exemple de sortie
 
 Voici un exemple de sortie typique lors de l'execution du programme :
+
+```
+Combien de valeurs voulez-vous trier ? 5
+Veuillez entrer 5 entiers :
+Valeur 1 : 8
+Valeur 2 : 3
+Valeur 3 : 7
+Valeur 4 : 1
+Valeur 5 : 4
+Avant : 8 3 7 1 4 
+Apres  : 1 3 4 7 8 
+Apres insertion : 1 3 4 7 8 
+```
+
+L'utilisateur choisit la taille et les valeurs du tableau à trier.
 
 ```
 Avant : 64 34 25 12 22 25 90 8 0 -1 
