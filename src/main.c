@@ -4,6 +4,27 @@
 #include "bubble_sort.h"
 #include "saisie.h"
 
+static void afficher_tableau(const char *label, const int values[], int length) {
+	printf("%s", label);
+
+	if (length <= 30) {
+		for (int index = 0; index < length; index++) {
+			printf("%d ", values[index]);
+		}
+	} else {
+		for (int index = 0; index < 15; index++) {
+			printf("%d ", values[index]);
+		}
+		printf("... ");
+		for (int index = length - 5; index < length; index++) {
+			printf("%d ", values[index]);
+		}
+		printf("(total : %d valeurs)", length);
+	}
+
+	printf("\n");
+}
+
 int main() {
 	int originalArray[10000];
 	int itemCount;
@@ -35,12 +56,11 @@ int main() {
 		insertionArray[i] = originalArray[i];
 	}
 
-	if (itemCount <= 30) {
-		printf("Avant : ");
-		for (int index = 0; index < itemCount; index++)
-			printf("%d ", originalArray[index]);
-		printf("\n");
-	}
+	printf("\n--- Tableaux non tries ---\n");
+	afficher_tableau("Tableau initial           : ", originalArray, itemCount);
+	afficher_tableau("Copie pour tri a bulles   : ", bubbleArray, itemCount);
+	afficher_tableau("Copie pour tri insertion  : ", insertionArray, itemCount);
+	printf("\n");
 
 	clock_t start, end;
 
@@ -61,12 +81,8 @@ int main() {
 	double total_bubble = (double)(end - start) * 1000.0 / CLOCKS_PER_SEC;
 	double avg_bubble = total_bubble / repeat;
 
-	if (itemCount <= 30) {
-		printf("Apres  : ");
-		for (int index = 0; index < itemCount; index++)
-			printf("%d ", bubbleArray[index]);
-		printf("\n");
-	}
+	printf("--- Tableaux tries ---\n");
+	afficher_tableau("Apres tri a bulles       : ", bubbleArray, itemCount);
 	printf("Temps tri a bulles : %.8f ms (moyenne sur %d repetitions)\n", avg_bubble, repeat);
 	printf("Temps total tri a bulles : %.3f ms\n", total_bubble);
 
@@ -80,14 +96,13 @@ int main() {
 	double total_insertion = (double)(end - start) * 1000.0 / CLOCKS_PER_SEC;
 	double avg_insertion = total_insertion / repeat;
 
-	if (itemCount <= 30) {
-		printf("Apres insertion : ");
-		for (int index = 0; index < itemCount; index++)
-			printf("%d ", insertionArray[index]);
-		printf("\n");
-	}
+	afficher_tableau("Apres tri insertion      : ", insertionArray, itemCount);
 	printf("Temps tri insertion : %.8f ms (moyenne sur %d repetitions)\n", avg_insertion, repeat);
 	printf("Temps total tri insertion : %.3f ms\n", total_insertion);
 
+	//ajoute une pause de 15 secondes pour permettre à l'utilisateur de voir les résultats avant que la console ne se ferme	
+	printf("Appuyez sur Entrée pour continuer...");
+	getchar(); // pour consommer le '\n' laissé par scanf
 	return 0;
 }
+	
